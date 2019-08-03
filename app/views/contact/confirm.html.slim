@@ -1,5 +1,4 @@
 br
-  =image_tag 'each_main.jpg', width: '100%'
 
 
 = form_for(@contact, url: { action: :thanks }) do |f|
@@ -60,6 +59,5 @@ br
           = f.hidden_field :message
           = @contact.message
       tr
-        td colspan="2" 
+        td colspan="2"
           = f.submit "確認"
-

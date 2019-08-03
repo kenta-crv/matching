@@ -66,7 +66,6 @@ gem 'meta-tags'
 gem 'slim-rails', '3.1.3'
 #パンくずリスト
 gem 'breadcrumbs_on_rails'
-#SNSボタン
 #gem 'social-share-button'
 gem 'annotate'
 #jQuiry
@@ -74,8 +73,10 @@ gem "jquery-rails"
 #ページネート
 gem 'kaminari'
 gem 'annotate'
+#ページネート
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-
 #画像アップロード
 gem 'carrierwave'
+#ログイン
+gem 'devise'

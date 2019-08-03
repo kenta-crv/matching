@@ -1,0 +1,35 @@
+.top-wrapper
+  h1.headline 求職者新規会員登録
+  br
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+
+      table.company
+        tr
+          th.arrow_box ユーザーネーム
+        tr
+          td   = f.text_field :username
+        tr
+          th.arrow_box ログインアドレス
+        tr
+          td   = f.email_field :email, autocomplete: "email"
+        tr
+          th.arrow_box パスワード
+        tr
+          td
+            - if @minimum_password_length
+              em
+                = @minimum_password_length
+            = f.password_field :password, autocomplete: "off"
+
+        tr
+          th.arrow_box パスワード
+        tr
+          td  = f.password_field :password_confirmation, autocomplete: "off"
+        tr
+          th.arrow_box 同意してチェック
+        tr
+          td   = f.check_box :agree_check
+        tr
+          td  = f.submit "同意して登録"
+  = render "users/shared/links"

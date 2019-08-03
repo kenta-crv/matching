@@ -1,0 +1,21 @@
+.row
+ .col
+   h1.headline 私と働いて頂ける方を探しています
+.row
+-@companies.each do |company|
+ .col-sm-4.list
+   = link_to company_path(company) do
+    = image_tag "1_T435-326_0712023310.png", width:"50%"
+    h5
+       = link_to company.first_name, company_path(company)
+       = link_to company.last_name, company_path(company)
+    p
+       = link_to company.prefecture, company_path(company)
+       = link_to company.city, company_path(company)
+       br
+       |美容師歴
+       = link_to company.history, company_path(company)
+       |年
+    button.btn.btn-danger type="button"  アルバイト
+    button.btn.btn-danger type="button"  正社員雇用
+    button.btn.btn-danger type="button"  残業なし

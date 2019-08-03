@@ -3,8 +3,42 @@ html
   head
       = render template: 'layouts/_head.html.slim'
   header
-    .container-fuild
-      = render template: 'layouts/_header.html.slim'
+      .row
+        .col-xs-3
+          = link_to '/' do
+            =image_tag "logo.png", height: "75vw"
+        nav.globalMenuSp
+          ul
+            li
+              = link_to  'トップページ', '/' , class: "col-md"
+            li
+              = link_to  '登録して募集店舗オーナーを探す', '/mypages/new' , :class=>"col-md"
+            li
+              = link_to  '募集店舗オーナーを見る', '/owner' , :class=>"col-md"
+            li
+              = link_to  '会社概要', '/company' , :class=>"col-md"
+            li
+              = link_to  '問い合わせ', '/contact' , :class=>"col-md"
+            li
+              = link_to  'プライバシーポリシー', '/privacy' , :class=>"col-md"
+            li
+               -if user_signed_in?
+                 = link_to "求職者ログアウト" ,destroy_user_session_path, method: :delete
+               -else
+                 = link_to "求職者ログイン" ,new_user_session_path
+            li
+              -if management_signed_in?
+                 = link_to "店舗ログアウト" ,destroy_management_session_path, method: :delete
+              -else
+                = link_to "店舗ログイン" ,new_management_session_path
+
+        .navToggle
+          span
+          span
+          span
+          span menu
+
+
   body
     p.notice
       = notice

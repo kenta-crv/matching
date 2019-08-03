@@ -1,0 +1,81 @@
+h1.headline 登録情報
+
+table.company width = "90%"
+   tbody
+    tr
+      th
+			 | お名前
+    tr
+      td
+        = @company.company
+        | (
+        = @company.store
+        | )
+    tr
+      th
+			 | オナマエ
+    tr
+      td
+			  = @company.first_kana
+			  = @company.last_kana
+    tr
+      th
+			 | 電話番号
+    tr
+      td
+			  = @company.tel
+    tr
+      th
+			 | メールアドレス
+    tr
+      td
+			  = @company.e_mail
+    tr
+      th
+			 | 住所
+    tr
+      td
+			  = @company.postnumber
+			  = @company.prefecture
+			  = @company.city
+			  = @company.town
+			  = @company.town_number
+			  = @company.building
+
+table.company width = "90%"
+   tbody
+    tr
+      th
+        | 年齢
+      th
+        | 美容師歴
+    tr
+      td
+        = @company.age
+      td
+        = @company.history
+
+table.company width = "90%"
+   tbody
+    tr
+      th
+			 | 画像添付
+    tr
+      td
+        = @company.picture
+        = @company.sub_picture_1
+        = @company.sub_picture_2
+        = @company.sub_picture_3
+        = @company.sub_picture_4
+    tr
+      th
+			 | 証明書添付
+    tr
+      td
+        | 美容免許証
+        = @company.beauty_license
+        | 運転免許証（マイナンバー・パスポート可）
+        = @company.drive_license
+    tr
+      td
+        = link_to "編集", edit_company_path, class:"btn btn-danger"

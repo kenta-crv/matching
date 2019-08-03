@@ -1,0 +1,107 @@
+
+
+  table.company width = "90%"
+   tbody
+    tr
+      th
+			 | 卒業年月日
+      th
+       | 卒業学校名
+    tr
+      td
+        = @detail.graduate_date
+      td
+        = @detail.graduate_school
+    tr
+      th
+			 | 期間
+      th
+       | 企業名（役職）
+    tr
+      td
+        = @detail.enter_date_1
+        |~
+        = @detail.retirement_date_1
+      td
+        = @detail.work_1
+        |(
+        = @detail.position_1
+        |)
+    tr
+      td
+        = @detail.enter_date_2
+        |~
+        = @detail.retirement_date_2
+      td
+        = @detail.work_2
+        |(
+        = @detail.position_2
+        |)
+    tr
+      td
+        = @detail.enter_date_3
+        |~
+        = @detail.retirement_date_3
+      td
+        = @detail.work_3
+        |(
+        = @detail.position_3
+        |)
+    tr
+      td
+        = @detail.enter_date_4
+        |~
+        = @detail.retirement_date_4
+      td
+        = @detail.work_4
+        |(
+        = @detail.position_4
+        |)
+    tr
+      td
+        = @detail.enter_date_5
+        |~
+        = @detail.retirement_date_5
+      td
+        = @detail.work_5
+        |(
+        = @detail.position_5
+        |)
+
+  table.company width = "90%"
+   tbody
+    tr
+      th
+        | 年齢
+      th
+        | 美容師歴
+    tr
+      td
+        = @detail.age
+      td
+        = @detail.history
+
+  table.company width = "90%"
+   tbody
+    tr
+      th
+			 | 画像添付
+    tr
+      td
+        = @detail.main_picture
+        = @detail.sub_picture_1
+        = @detail.sub_picture_2
+        = @detail.sub_picture_3
+        = @detail.sub_picture_4
+    tr
+      th
+			 | 証明書添付
+    tr
+      td
+        | 美容免許証
+        = @detail.beauty_license
+        | 運転免許証（マイナンバー・パスポート可）
+        = @detail.drive_license
+    tr
+      td
+        = link_to "編集", edit_detail_path, class:"btn btn-danger"

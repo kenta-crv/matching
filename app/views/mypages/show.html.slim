@@ -1,0 +1,39 @@
+h1.headline 登録情報
+
+table.company width = "90%"
+   tbody
+    tr
+      th
+			 | お名前
+    tr
+      td
+			  = @mypage.first_name
+			  = @mypage.last_name
+    tr
+      th
+			 | オナマエ
+    tr
+      td
+			  = @mypage.first_kana
+			  = @mypage.last_kana
+    tr
+      th
+			 | 電話番号
+    tr
+      td
+			  = @mypage.tel
+    tr
+      th
+			 | 住所
+    tr
+      td
+			  = @mypage.postnumber
+			  = @mypage.prefecture
+			  = @mypage.city
+			  = @mypage.town
+			  = @mypage.town_number
+			  = @mypage.building
+    tr
+      td
+        = link_to "編集", edit_mypage_path, class:"btn btn-danger"
+        = link_to "詳細情報入力", new_detail_path, class:"btn btn-danger"
