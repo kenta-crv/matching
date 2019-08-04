@@ -5,4 +5,7 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :likes, dependent: :destroy
   has_many :likes_users, through: :likes, source: :user
+  def already_liked?(user)
+    self.likes.exists?(user_id: user.id)
+  end
 end

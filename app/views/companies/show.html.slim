@@ -4,13 +4,18 @@ table.company width = "90%"
    tbody
     tr
       th
-			 | お名前
+       | 会社名・店舗名
     tr
       td
         = @company.company
-        | (
         = @company.store
-        | )
+    tr
+      th
+			 | お名前
+    tr
+      td
+			  = @company.first_name
+			  = @company.last_name
     tr
       th
 			 | オナマエ
@@ -42,40 +47,27 @@ table.company width = "90%"
 			  = @company.town_number
 			  = @company.building
 
-table.company width = "90%"
-   tbody
     tr
       th
-        | 年齢
-      th
-        | 美容師歴
+			 | 資料添付
     tr
       td
-        = @company.age
-      td
-        = @company.history
-
-table.company width = "90%"
-   tbody
+			  | 美容免許
+			  = @company.beauty_license
+    tr
+		  td
+			  | 運転免許・マイナンバー・パスポート（いずれか一点）
+			  = @company.drive_license
     tr
       th
-			 | 画像添付
+			 | 美容師歴
     tr
       td
-        = @company.picture
-        = @company.sub_picture_1
-        = @company.sub_picture_2
-        = @company.sub_picture_3
-        = @company.sub_picture_4
+			  = @company.history
+			  | 年
     tr
       th
-			 | 証明書添付
+    	 | 編集
     tr
-      td
-        | 美容免許証
-        = @company.beauty_license
-        | 運転免許証（マイナンバー・パスポート可）
-        = @company.drive_license
-    tr
-      td
-        = link_to "編集", edit_company_registration_path, class:"btn btn-danger"
+	    td
+			  = link_to "編集", edit_company_path, class:"btn btn-danger"

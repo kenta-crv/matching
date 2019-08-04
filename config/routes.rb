@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     :registrations => 'companies/registrations',
     :sessions => 'companies/sessions'
   }
-  resource :company, :only => [:show]
+  resource :company, :only => [:show, :edit, :update, :destroy]
   get 'company/list' => 'companies#list'
 
 #user_devise
@@ -13,8 +13,13 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'
   }
-  resource :user, :only => [:show]
+  resource :user, :company, :only => [:show, :edit, :update, :destroy]
   get 'user/list' => 'users#list'
+  
+#likes
+  resource :user, :company, :only => [:show]  do
+    resources :likes, only: [:create, :destroy]
+  end
 
 #front
   root to: 'top#index'

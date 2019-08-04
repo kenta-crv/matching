@@ -1,38 +1,143 @@
 h1.headline 登録情報
 
 table.company width = "90%"
-   tbody
-    tr
-      th
-			 | お名前
-    tr
-      td
-			  = @user.first_name
-			  = @user.last_name
-    tr
-      th
-			 | オナマエ
-    tr
-      td
-			  = @user.first_kana
-			  = @user.last_kana
-    tr
-      th
-			 | 電話番号
-    tr
-      td
-			  = @user.tel
-    tr
-      th
-			 | 住所
-    tr
-      td
-			  = @user.postnumber
-			  = @user.prefecture
-			  = @user.city
-			  = @user.town
-			  = @user.town_number
-			  = @user.building
-    tr
-      td
-        = link_to "編集", edit_user_path, class:"btn btn-danger"
+ tbody
+  tr
+    th
+     | お名前
+  tr
+    td
+      = @user.first_name
+      = @user.last_name
+  tr
+    th
+     | オナマエ
+  tr
+    td
+      = @user.first_kana
+      = @user.last_kana
+  tr
+    th
+     | 電話番号
+  tr
+    td
+      = @user.tel
+  tr
+    th
+     | 住所
+  tr
+    td
+      = @user.postnumber
+      = @user.prefecture
+      = @user.city
+      = @user.town
+      = @user.town_number
+      = @user.building
+br
+br
+table.company width = "90%"
+ tbody
+  tr
+    th
+     | 卒業年月日
+    th
+     | 卒業学校名
+  tr
+    td
+      = @user.graduate_date
+    td
+      = @user.graduate_school
+  tr
+    th
+     | 期間
+    th
+     | 企業名（役職）
+  tr
+    td
+      = @user.enter_date_1
+      |~
+      = @user.retirement_date_1
+    td
+      = @user.work_1
+      |(
+      = @user.position_1
+      |)
+  tr
+    td
+      = @user.enter_date_2
+      |~
+      = @user.retirement_date_2
+    td
+      = @user.work_2
+      |(
+      = @user.position_2
+      |)
+  tr
+    td
+      = @user.enter_date_3
+      |~
+      = @user.retirement_date_3
+    td
+      = @user.work_3
+      |(
+      = @user.position_3
+      |)
+  tr
+    td
+      = @user.enter_date_4
+      |~
+      = @user.retirement_date_4
+    td
+      = @user.work_4
+      |(
+      = @user.position_4
+      |)
+  tr
+    td
+      = @user.enter_date_5
+      |~
+      = @user.retirement_date_5
+    td
+      = @user.work_5
+      |(
+      = @user.position_5
+      |)
+br
+
+table.company width = "90%"
+ tbody
+  tr
+    th
+      | 年齢
+    th
+      | 美容師歴
+  tr
+    td
+      = @user.age
+    td
+      = @user.history
+
+table.company width = "90%"
+ tbody
+  tr
+    th
+     | 画像添付
+  tr
+    td
+      = @user.main_picture
+      = @user.sub_picture_1
+      = @user.sub_picture_2
+      = @user.sub_picture_3
+      = @user.sub_picture_4
+  tr
+    th
+     | 証明書添付
+  tr
+    td
+      | 美容免許証
+      = @user.beauty_license
+      | 運転免許証（マイナンバー・パスポート可）
+      = @user.drive_license
+  tr
+    td
+      = link_to "編集", edit_user_path, class:"btn btn-danger"

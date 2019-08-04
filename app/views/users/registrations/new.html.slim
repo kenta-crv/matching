@@ -1,35 +1,160 @@
 .top-wrapper
   h1.headline 求職者新規会員登録
-  br
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = devise_error_messages!
+    = devise_error_messages!
+    table.company width = "90%"
+         tbody
+          tr
+            th
+      			 | お名前
+          tr
+            td
+      			  = f.text_field :first_name ,placeholder:"美容", class:"middle"
+      			  = f.text_field :last_name ,placeholder:"太郎", class:"middle"
+          tr
+            th
+      			 | オナマエ
+          tr
+            td
+      			  = f.text_field :first_kana ,placeholder:"ビヨウ", class:"middle"
+      			  = f.text_field :last_kana ,placeholder:"タロウ", class:"middle"
+          tr
+            th
+      			 | 電話番号
+          tr
+            td
+      			  = f.telephone_field :tel ,placeholder:"080-0000-0000"
+          tr
+            th
+      			 | 住所
+          tr
+            td
+      			  = f.text_field :postnumber ,placeholder:"000-0000", class:"middle"
+      			  = f.text_field :prefecture ,placeholder:"東京都", class:"middle"
+      			  = f.text_field :city ,placeholder:"東京市", class:"middle"
+      			  = f.text_field :town ,placeholder:"東京町", class:"middle"
+      			  = f.text_field :town_number ,placeholder:"1-1-1", class:"middle"
+      			  = f.text_field :building ,placeholder:"東京ビル100", class:"middle"
+          tr
+            th
+              | 卒業年月日
+            th
+              | 卒業学校名
+          tr
+            td
+              = f.date_field :graduate_date, class:"middle"
+            td
+              = f.text_field :graduate_school
+          tr
+            th
+     	  	 	 | 期間
+            th
+             | 企業名（役職）
+          tr
+            td
+              = f.date_field :enter_date_1, class:"middle"
+              |~
+              = f.date_field :retirement_date_1, class:"middle"
+            td
+              = f.text_field :work_1
+              |(
+              = f.text_field :position_1, class:"middle"
+              |)
+          tr
+            td
+              = f.date_field :enter_date_2, class:"middle"
+              |~
+              = f.date_field :retirement_date_2, class:"middle"
+            td
+              = f.text_field :work_2
+              |(
+              = f.text_field :position_2, class:"middle"
+              |)
+          tr
+            td
+              = f.date_field :enter_date_3, class:"middle"
+              |~
+              = f.date_field :retirement_date_3, class:"middle"
+            td
+              = f.text_field :work_3
+              |(
+              = f.text_field :position_3, class:"middle"
+              |)
+          tr
+            td
+              = f.date_field :enter_date_4, class:"middle"
+              |~
+              = f.date_field :retirement_date_4, class:"middle"
+            td
+              = f.text_field :work_4
+              |(
+              = f.text_field :position_4, class:"middle"
+              |)
+          tr
+            td
+              = f.date_field :enter_date_5, class:"middle"
+              |~
+              = f.date_field :retirement_date_5, class:"middle"
+            td
+              = f.text_field :work_5
+              |(
+              = f.text_field :position_5, class:"middle"
+              |)
 
-      table.company
-        tr
-          th.arrow_box ユーザーネーム
-        tr
-          td   = f.text_field :username
-        tr
-          th.arrow_box ログインアドレス
-        tr
-          td   = f.email_field :email, autocomplete: "email"
-        tr
-          th.arrow_box パスワード
-        tr
-          td
-            - if @minimum_password_length
-              em
-                = @minimum_password_length
-            = f.password_field :password, autocomplete: "off"
+          tr
+            th
+             | 年齢
+            th
+             | 美容師歴
+          tr
+            td
+              = f.number_field :age
+            td
+              = f.number_field :history
 
-        tr
-          th.arrow_box パスワード
-        tr
-          td  = f.password_field :password_confirmation, autocomplete: "off"
-        tr
-          th.arrow_box 同意してチェック
-        tr
-          td   = f.check_box :agree_check
-        tr
-          td  = f.submit "同意して登録"
-  = render "users/shared/links"
+          tr
+            th
+      			 | 画像添付
+          tr
+            td
+              = f.file_field :main_picture
+              = f.file_field :sub_picture_1
+              = f.file_field :sub_picture_2
+              = f.file_field :sub_picture_3
+              = f.file_field :sub_picture_4
+          tr
+            th
+      			 | 証明書添付
+          tr
+            td
+              | 美容免許証
+              = f.file_field :beauty_license
+              | 運転免許証（マイナンバー・パスポート可）
+              = f.file_field :drive_license
+          tr
+            th.arrow_box ユーザーネーム
+          tr
+            td   = f.text_field :username
+          tr
+            th.arrow_box ログインアドレス
+          tr
+            td   = f.email_field :email, autocomplete: "email"
+          tr
+            th.arrow_box パスワード
+          tr
+            td
+              - if @minimum_password_length
+                em
+                  = @minimum_password_length
+              = f.password_field :password, autocomplete: "off"
+          tr
+            th.arrow_box パスワード
+          tr
+            td  = f.password_field :password_confirmation, autocomplete: "off"
+          tr
+            th.arrow_box 同意してチェック
+          tr
+            td   = f.check_box :agree_check
+          tr
+            td  = f.submit "同意して登録"
+                = render "users/shared/links"

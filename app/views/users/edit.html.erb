@@ -1,3 +1,143 @@
-<div class="heading"><h2>情報編集</h2></div>
+h1.headline 情報編集
+= form_for @mypage, url:mypage_path do |f|
+  table.company width = "90%"
+     tbody
+      tr
+        th
+         | お名前
+      tr
+        td
+          = f.text_field :first_name ,placeholder:"美容", class:"middle"
+          = f.text_field :last_name ,placeholder:"太郎", class:"middle"
+      tr
+        th
+         | オナマエ
+      tr
+        td
+          = f.text_field :first_kana ,placeholder:"ビヨウ", class:"middle"
+          = f.text_field :last_kana ,placeholder:"タロウ", class:"middle"
+      tr
+        th
+         | 電話番号
+      tr
+        td
+          = f.telephone_field :tel ,placeholder:"080-0000-0000"
+      tr
+        th
+         | 住所
+      tr
+        td
+          = f.text_field :postnumber ,placeholder:"000-0000", class:"middle"
+          = f.text_field :prefecture ,placeholder:"東京都", class:"middle"
+          = f.text_field :city ,placeholder:"東京市", class:"middle"
+          = f.text_field :town ,placeholder:"東京町", class:"middle"
+          = f.text_field :town_number ,placeholder:"1-1-1", class:"middle"
+          = f.text_field :building ,placeholder:"東京ビル100", class:"middle"
+  br
+  br
+  table.company width = "90%"
+   tbody
+    tr
+      th
+       | 卒業年月日
+      th
+       | 卒業学校名
+    tr
+      td
+        = f.date_field :graduate_date, class:"middle"
+      td
+        = f.text_field :graduate_school
+    tr
+      th
+       | 期間
+      th
+       | 企業名（役職）
+    tr
+      td
+        = f.date_field :enter_date_1, class:"middle"
+        |~
+        = f.date_field :retirement_date_1, class:"middle"
+      td
+        = f.text_field :work_1
+        |(
+        = f.text_field :position_1, class:"middle"
+        |)
+    tr
+      td
+        = f.date_field :enter_date_2, class:"middle"
+        |~
+        = f.date_field :retirement_date_2, class:"middle"
+      td
+        = f.text_field :work_2
+        |(
+        = f.text_field :position_2, class:"middle"
+        |)
+    tr
+      td
+        = f.date_field :enter_date_3, class:"middle"
+        |~
+        = f.date_field :retirement_date_3, class:"middle"
+      td
+        = f.text_field :work_3
+        |(
+        = f.text_field :position_3, class:"middle"
+        |)
+    tr
+      td
+        = f.date_field :enter_date_4, class:"middle"
+        |~
+        = f.date_field :retirement_date_4, class:"middle"
+      td
+        = f.text_field :work_4
+        |(
+        = f.text_field :position_4, class:"middle"
+        |)
+    tr
+      td
+        = f.date_field :enter_date_5, class:"middle"
+        |~
+        = f.date_field :retirement_date_5, class:"middle"
+      td
+        = f.text_field :work_5
+        |(
+        = f.text_field :position_5, class:"middle"
+        |)
 
-<%= render 'form', mypage: @mypage %>
+  table.company width = "90%"
+   tbody
+    tr
+      th
+        | 年齢
+      th
+        | 美容師歴
+    tr
+      td
+        = f.number_field :age
+      td
+        = f.number_field :history
+
+  table.company width = "90%"
+   tbody
+    tr
+      th
+       | 画像添付
+    tr
+      td
+        = f.file_field :main_picture
+        = f.file_field :sub_picture_1
+        = f.file_field :sub_picture_2
+        = f.file_field :sub_picture_3
+        = f.file_field :sub_picture_4
+    tr
+      th
+       | 証明書添付
+    tr
+      td
+        | 美容免許証
+        = f.file_field :beauty_license
+        | 運転免許証（マイナンバー・パスポート可）
+        = f.file_field :drive_license
+
+    tr
+	    td colspan = 2
+			  =f.submit "登録"
