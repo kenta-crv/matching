@@ -1,0 +1,21 @@
+.row
+ .col
+   h1.headline 私と働いて頂ける方を探しています
+.row
+-@users.each do |user|
+ .col-sm-4.list
+   = link_to user_path(user) do
+    = image_tag "1_T435-326_0712023310.png", width:"50%"
+    h5
+       = link_to user.first_name, user_path(user)
+       = link_to user.last_name, user_path(user)
+    p
+       = link_to user.prefecture, user_path(user)
+       = link_to user.city, user_path(user)
+       br
+       |美容師歴
+       = link_to user.history, user_path(user)
+       |年
+    button.btn.btn-danger type="button"  アルバイト
+    button.btn.btn-danger type="button"  正社員雇用
+    button.btn.btn-danger type="button"  残業なし

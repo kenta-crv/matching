@@ -27,10 +27,10 @@ html
                -else
                  = link_to "求職者ログイン" ,new_user_session_path
             li
-              -if management_signed_in?
-                 = link_to "店舗ログアウト" ,destroy_management_session_path, method: :delete
+              -if company_signed_in?
+                 = link_to "店舗ログアウト" ,destroy_company_session_path, method: :delete
               -else
-                = link_to "店舗ログイン" ,new_management_session_path
+                = link_to "店舗ログイン" ,new_company_session_path
 
         .navToggle
           span

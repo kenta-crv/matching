@@ -1,0 +1,38 @@
+h1.headline 登録情報
+
+table.company width = "90%"
+   tbody
+    tr
+      th
+			 | お名前
+    tr
+      td
+			  = @user.first_name
+			  = @user.last_name
+    tr
+      th
+			 | オナマエ
+    tr
+      td
+			  = @user.first_kana
+			  = @user.last_kana
+    tr
+      th
+			 | 電話番号
+    tr
+      td
+			  = @user.tel
+    tr
+      th
+			 | 住所
+    tr
+      td
+			  = @user.postnumber
+			  = @user.prefecture
+			  = @user.city
+			  = @user.town
+			  = @user.town_number
+			  = @user.building
+    tr
+      td
+        = link_to "編集", edit_user_path, class:"btn btn-danger"

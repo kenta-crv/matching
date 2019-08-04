@@ -1,0 +1,85 @@
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+
+    table.company
+      tr
+        th
+         | 会社名・店舗名
+      tr
+        td
+          = f.text_field :company ,placeholder:"株式会社サンプル", class:"middle"
+          = f.text_field :store ,placeholder:"サンプル美容室", class:"middle"
+      tr
+        th
+         | お名前
+      tr
+        td
+          = f.text_field :first_name ,placeholder:"美容", class:"middle"
+          = f.text_field :last_name ,placeholder:"太郎", class:"middle"
+      tr
+        th
+         | オナマエ
+      tr
+        td
+          = f.text_field :first_kana ,placeholder:"ビヨウ", class:"middle"
+          = f.text_field :last_kana ,placeholder:"タロウ", class:"middle"
+      tr
+        th
+         | 電話番号
+      tr
+        td
+          = f.telephone_field :tel ,placeholder:"03-0000-0000", class:"middle"
+      tr
+        th
+         | 住所
+      tr
+        td
+          = f.text_field :postnumber ,placeholder:"000-0000", class:"middle"
+          = f.text_field :prefecture ,placeholder:"東京都", class:"middle"
+          = f.text_field :city ,placeholder:"東京市", class:"middle"
+          = f.text_field :town ,placeholder:"東京町", class:"middle"
+          = f.text_field :town_number ,placeholder:"1-1-1", class:"middle"
+          = f.text_field :building ,placeholder:"東京ビル100", class:"middle"
+      tr
+        th
+         | 資料添付
+      tr
+        td
+          | 美容免許
+          = f.file_field :beauty_license
+      tr
+        td
+          | 運転免許・マイナンバー・パスポート（いずれか一点）
+          = f.file_field :drive_license
+      tr
+        th
+         | 美容師歴
+      tr
+        td
+          = f.number_field :history ,placeholder:"5", class:"middle"
+          | 年
+      tr
+        th.arrow_box ログインアドレス
+      tr
+        td   = f.email_field :email, autocomplete: "email"
+      tr
+        th.arrow_box パスワード
+      tr
+        td
+          - if @minimum_password_length
+            em
+              = @minimum_password_length
+          = f.password_field :password, autocomplete: "off"
+
+      tr
+        th.arrow_box パスワード
+      tr
+        td  = f.password_field :password_confirmation, autocomplete: "off"
+      tr
+        th
+          | 約款に同意する場合、チェックを入れて下さい。
+      tr
+        td
+          = f.check_box :agree_check
+      tr
+        td  = f.submit "登録"

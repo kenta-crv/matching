@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
     when User
-      mypage_path
-    when Management
+      user_path
+    when Company
       company_path
     else
       super
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     case resource
     when User, :user, :users
       "/"
-    when Management, :management, :managements
+    when Company, :company, :companies
       "/"
     else
       super
