@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_03_152131) do
+ActiveRecord::Schema.define(version: 2019_08_05_120419) do
 
   create_table "companies", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -83,31 +83,53 @@ ActiveRecord::Schema.define(version: 2019_08_03_152131) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "user_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "agree_check"
+    t.string "agree_check", default: "", null: false
     t.string "first_name"
     t.string "last_name"
     t.string "first_kana"
     t.string "last_kana"
     t.string "tel"
-    t.string "e_mail"
     t.string "postnumber"
     t.string "prefecture"
     t.string "city"
     t.string "town"
     t.string "town_number"
     t.string "building"
-    t.string "beauty_license"
-    t.string "drive_license"
-    t.string "history"
-    t.string "age"
-    t.string "picture"
+    t.string "main_picture"
     t.string "sub_picture_1"
     t.string "sub_picture_2"
     t.string "sub_picture_3"
     t.string "sub_picture_4"
-    t.string "username"
+    t.date "graduate_date"
+    t.string "graduate_school"
+    t.date "enter_date_1"
+    t.string "work_1"
+    t.string "position_1"
+    t.date "retirement_date_1"
+    t.date "enter_date_2"
+    t.string "work_2"
+    t.string "position_2"
+    t.date "retirement_date_2"
+    t.date "enter_date_3"
+    t.string "work_3"
+    t.string "position_3"
+    t.date "retirement_date_3"
+    t.date "enter_date_4"
+    t.string "work_4"
+    t.string "position_4"
+    t.date "retirement_date_4"
+    t.date "enter_date_5"
+    t.string "work_5"
+    t.string "position_5"
+    t.date "retirement_date_5"
+    t.string "comment"
+    t.string "beauty_license"
+    t.string "drive_license"
+    t.integer "history"
+    t.integer "age"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

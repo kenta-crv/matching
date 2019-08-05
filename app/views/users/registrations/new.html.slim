@@ -35,6 +35,8 @@
       			  = f.text_field :town ,placeholder:"東京町", class:"middle"
       			  = f.text_field :town_number ,placeholder:"1-1-1", class:"middle"
       			  = f.text_field :building ,placeholder:"東京ビル100", class:"middle"
+    table.company width = "90%"
+         tbody
           tr
             th
               | 卒業年月日
@@ -111,7 +113,8 @@
               = f.number_field :age
             td
               = f.number_field :history
-
+    table.company width = "90%"
+         tbody
           tr
             th
       			 | 画像添付
@@ -134,7 +137,7 @@
           tr
             th.arrow_box ユーザーネーム
           tr
-            td   = f.text_field :username
+            td   = f.text_field :user_name
           tr
             th.arrow_box ログインアドレス
           tr

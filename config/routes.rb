@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   }
   resource :user, :company, :only => [:show, :edit, :update, :destroy]
   get 'user/list' => 'users#list'
-  
+
 #likes
   resource :user, :company, :only => [:show]  do
     resources :likes, only: [:create, :destroy]
