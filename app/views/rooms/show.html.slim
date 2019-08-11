@@ -1,0 +1,34 @@
+h1
+ | メッセージ
+h4
+ | 参加者
+- @entries.each do |e|
+ h5
+  strong
+   |<a href= "/users/
+   = e.user.id
+   |">
+   = e.user.user_name
+   |さん
+hr
+-if @messages.present?
+ -@messages.each do |m|
+  strong
+   = m.content
+  small
+   |by
+   strong
+    |<a href="/users/
+    =m.user.id"
+    |">
+    =m.user.user_name
+    |さん
+  hr
+-else
+ h3.text-center
+  |メッセージはまだありません
+= form_for @message do |f|
+ = f.text_field :content, :placeholder => "メッセージを入力してください", :size => 70
+ = f.hidden_field :room_id, :value => @room.id
+ br
+ = f.submit "投稿する"

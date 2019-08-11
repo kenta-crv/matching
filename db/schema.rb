@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_05_120419) do
+ActiveRecord::Schema.define(version: 2019_08_08_074742) do
 
   create_table "companies", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 2019_08_05_120419) do
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
 
+  create_table "entries", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "company_id"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_entries_on_company_id"
+    t.index ["room_id"], name: "index_entries_on_room_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "management_id"
     t.integer "user_id"
@@ -71,6 +82,18 @@ ActiveRecord::Schema.define(version: 2019_08_05_120419) do
     t.index ["reset_password_token"], name: "index_managements_on_reset_password_token", unique: true
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "company_id"
+    t.integer "room_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_messages_on_company_id"
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "file"
@@ -78,6 +101,12 @@ ActiveRecord::Schema.define(version: 2019_08_05_120419) do
     t.string "keyword"
     t.string "description"
     t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

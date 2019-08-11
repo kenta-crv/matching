@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  #before_action :set_company, except: [:new, :create]
+  before_action :authenticate_company!
   def list
     @users = User.all
     @like = Like.new
@@ -8,6 +8,25 @@ class CompaniesController < ApplicationController
   def show
   	@company = current_company
     @like = Like.new
+    @currentUserEntry = Entry.where(user_id: current_user.id)
+    @userEntry = Entry.where(user_id: @user.id)
+    if @user.id == current_user.id
+    else
+      @currentUserEntry.each do |cu|
+        @userEntry.each do |u|
+          if cu.room_id == u.room_id then
+            @isRoom = true
+            @roomId = cu.room_id
+          end
+        end
+      end
+      if @isRoom
+      else
+        @room = Room.new
+        @entry = Entry.new
+      end
+    end
+  end
   end
 
   def edit

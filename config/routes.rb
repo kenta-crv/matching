@@ -21,6 +21,10 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
 
+#messages
+  resources :messages, :only => [:create]
+  resources :rooms, :only => [:create, :show, :index]
+
 #front
   root to: 'top#index'
   get '/owner' => 'top#owner' #オーナー

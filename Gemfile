@@ -80,3 +80,5 @@ gem 'bootstrap-will_paginate'
 gem 'carrierwave'
 #ログイン
 gem 'devise'
+#デバッグ
+gem 'pry-byebug', group: :development

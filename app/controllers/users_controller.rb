@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
-  #before_action :set_company, except: [:new, :create]
+  before_action :authenticate_user! || :authenticate_admin!
+
   def list
     @companies = Company.all
     @like = Like.new
   end
 
   def show
-  	@user = current_user
+    @user = current_user
     @like = Like.new
   end
 

@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
   def create
-    @like = current_user.companies.create(company_id: params[:company_id])
+    @like = current_user.likes_companies.create(company_id: params[:company_id])
     redirect_to root_path
   end
 
