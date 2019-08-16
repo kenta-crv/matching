@@ -72,6 +72,7 @@ gem 'annotate'
 gem "jquery-rails"
 #ページネート
 gem 'kaminari'
+gem 'ransack'
 gem 'annotate'
 #ページネート
 gem 'will_paginate'

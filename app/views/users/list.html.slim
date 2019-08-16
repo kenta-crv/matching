@@ -25,3 +25,4 @@
         = button_to 'いいね', user_likes_path(@user)
     /-@companies.liked_users.each do |user|
      /= user.likes.count
+= paginate(@companies)

@@ -1,19 +1,19 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_company!
+  before_action :authenticate_company!, expect: [:listß]
   def list
-    @users = User.all
+    @users = User.page(params[:page]).per(99).order(:id)
     @like = Like.new
   end
 
   def show
   	@company = current_company
     @like = Like.new
-    @currentUserEntry = Entry.where(user_id: current_user.id)
-    @userEntry = Entry.where(user_id: @user.id)
-    if @user.id == current_user.id
+    @currentCompanyEntry = Entry.where(company_id: current_company.id)
+    @companyEntry = Entry.where(company_id: @company.id)
+    if @company.id == current_company.id
     else
-      @currentUserEntry.each do |cu|
-        @userEntry.each do |u|
+      @currentCompanyEntry.each do |cu|
+        @companyEntry.each do |u|
           if cu.room_id == u.room_id then
             @isRoom = true
             @roomId = cu.room_id
@@ -26,7 +26,6 @@ class CompaniesController < ApplicationController
         @entry = Entry.new
       end
     end
-  end
   end
 
   def edit
