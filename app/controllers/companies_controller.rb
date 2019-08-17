@@ -1,8 +1,12 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_company!, expect: [:listß]
+
   def list
     @users = User.page(params[:page]).per(99).order(:id)
     @like = Like.new
+
+    ## list.html.slimに @companyを使っているのに定義していない
+    
   end
 
   def show

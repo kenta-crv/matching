@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
   def already_liked?(company)
+    binding.pry
+    ## companyがnilだったのが、エラーだったので
+    ## > companyが入ってるか確認する
     self.likes.exists?(company_id: company.id)
   end
 end

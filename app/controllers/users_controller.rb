@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def list
     @companies = Company.page(params[:page]).per(99).order(:id)
     @like = Like.new
+    
+    ## list.html.slimに @userを使っているのに定義していない
   end
 
   def show
